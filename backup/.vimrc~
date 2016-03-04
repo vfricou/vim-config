@@ -1,0 +1,155 @@
+"Non compatibilité avec vi 
+"set nocompatible
+
+
+"Autorise le backspace
+set backspace=indent,eol,start
+
+"Historique 
+set history=200
+
+"undo max 
+set undolevels=200
+
+"Activation du backup 
+set backup
+
+"Configuration des fichier de backup
+if filewritable(expand("~/.vim/backup")) == 2
+    " comme le rÃ©pertoire est accessible en Ã©criture,
+    " on va l'utiliser.
+	set backupdir=$HOME/.vim/backup
+else
+	if has("unix") || has("win32unix")
+        " C'est c'est un systÃ¨me compatible UNIX, on
+        " va crÃ©er le rÃ©pertoire et l'utiliser.
+		call system("mkdir $HOME/.vim/backup -p")
+		set backupdir=$HOME/.vim/backup
+	endif
+endif
+
+"Activation de la syntaxe
+syntax on
+
+"Acitvation du line cursor
+set cursorline
+highlight CursorLine guibg=#001000
+
+" Quand un fichier est changé en dehors de Vim, il est relu automatiquement
+set autoread
+
+" Quand une fermeture de parenthèse est entrée par l'utilisateur,
+" l'éditeur saute rapidement vers l'ouverture pour montrer où se
+" trouve l'autre parenthése. Cette fonction active aussi un petit
+" beep quand une erreur se trouve dans la syntaxe.
+set showmatch
+set matchtime=2
+
+" Tout ce qui concerne la recherche. Incrémentale
+" avec un highlight. Elle prend en compte la
+" différence entre majuscule/minuscule.
+set incsearch
+set noignorecase
+set infercase
+
+" Afficher les numÃ©ro de lignes
+set number
+
+" Afficher les commandes incomplÃ¨tes
+set showcmd
+
+" Afficher la position du curseur
+set ruler
+
+" DÃ©sactiver le wrapping
+"set nowrap
+
+" Options folding
+set foldmethod=marker
+
+" Un petit menu qui permet d'afficher la liste des éléments
+" filtrés avec un wildcard
+set wildmenu
+set wildignore=*.o,*#,*~,*.dll,*.so,*.a
+set wildmode=full
+
+" Format the statusline
+set statusline=%F%m\ %r\ Line:%l\/%L,%c\ %p%%
+
+" Configuration de la souris en mode console
+" ="" pas de souris par défaut
+"set mouse=a
+
+"Améliore l'affichage en disant à  vim que nous utilisons un terminal rapide
+set ttyfast
+
+set cindent
+set autoindent
+set smartindent
+
+if has("autocmd")
+	" DÃ©tection auto du format
+	" + activer indent
+	filetype plugin indent on
+	augroup divers " {{{2
+	au!
+	" Textwidth de 78 pour tous les fichiers texte
+	autocmd FileType text setlocal textwidth=78
+	" Remet la position du curseur comme elle Ã©tait avant
+	autocmd BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\   exe "normal g`\"" |
+	\ endif
+    " La valeur des tabs par dÃ©faut
+    autocmd BufNewFile,BufRead * call ChangeTabSize(4, 0)
+	" Ne pas faire de wrap dans les fichiers ChangeLog
+	autocmd BufNewFile,BufRead ChangeLog set nowrap textwidth=0
+	autocmd BufNewFile,BufRead ChangeLog call ChangeTabSize(8, 0)
+    " PKGBUILD
+	autocmd BufNewFile,BufRead PKGBUILD set syntax=sh
+    augroup END " }}}2
+	augroup pdf " {{{2
+	au!
+	autocmd BufReadPre *.pdf set ro
+	autocmd BufReadPost *.pdf %!pdftotext -nopgbrk "%" - | fmt -csw78
+    augroup END " }}}2
+endif
+
+" Fonctions utilisÃ©e par vimrc
+
+function! ChangeTabSize(tab_size, expandtab)
+    execute("set tabstop=".a:tab_size." softtabstop=".a:tab_size." shiftwidth=".a:tab_size)
+    if a:expandtab != 0
+       execute("set expandtab")
+    else
+       execute("set noexpandtab")
+    endif
+endfunction
+
+" Les fonctions utiles pour l'utilisateur
+" Entrer la commande ":e" dans le répertiore du fichier édité
+if has("unix")
+   map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+else
+   map ,e :e <C-R>=expand("%:p:h") . "\" <CR>
+endif
+
+
+
+"set tabstop=4
+"set softtabstop=4
+"set shiftwidth=4
+"set smarttab
+"set tabpagemax=15
+set cursorline
+highlight CursorLine guibg=#001000
+
+" Set the following lines in your ~/.vimrc or the systemwide /etc/vimrc:
+ filetype plugin indent on
+ set grepprg=grep\ -nH\ $*
+ let g:tex_flavor = "latex"
+ 
+" Also, this installs to /usr/share/vim/vimfiles, which may not be in
+" your runtime path (RTP). Be sure to add it too, e.g:
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+
