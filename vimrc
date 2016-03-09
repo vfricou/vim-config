@@ -84,55 +84,55 @@ nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language
 	set nowrap
 
 " Auto close brackets
-	" Ajout automatique de '}'
-	inoremap { {}<Left>
-	inoremap {<CR> {<CR>}<Esc>O
-	inoremap {<Right> {<Right>
-	inoremap {<End> {<End>
-	inoremap {{ {
-	inoremap {} {}
-	" Ajout automatique de ')'
-	inoremap ( ()<Left>
-	inoremap (<CR> (<CR>)<Esc>O
-	inoremap (<Right> (<Right>
-	inoremap (<End> (<End>
-	inoremap (( (
-	inoremap () ()
-	" Ajout automatique de '['
-	inoremap [ []<LEFT>
-	inoremap [<CR> [<CR>]<Esc>O
-	inoremap [<Right> [<Right>
-	inoremap [<End> [<End>
-	inoremap [[ [
-	inoremap [] []
-	" Ajout automatique de '"'
-	inoremap " ""<Left>
-	inoremap "" "
-	inoremap "<Right> "<Right>
-	inoremap "<End> "<End>
-	inoremap "<Home> "<Home>
-	inoremap "<Esc> "
-	" Ajout automatique de "'"
-	inoremap ' ''<Left>
-	inoremap '' '
-	inoremap '<Right> '<Right>
-	inoremap '<End> '<End>
-	inoremap '<Home> '<Home>
-	inoremap '<Esc> '
-	" Ajout automatique de '«'
-	inoremap « «»<LEFT>
-	inoremap «<CR> «<CR>»<Esc>O
-	inoremap «<Right> «<Right>
-	inoremap «<End> «<End>
-	inoremap «« «
-	inoremap «» «»
-	" Ajout automatique de '«'
-	inoremap < <><LEFT>
-	inoremap <<CR> <<CR>><Esc>O
-	inoremap <<Right> <<Right>
-	inoremap <<End> <<End>
-	inoremap << <
-	inoremap <> <>
+"	" Ajout automatique de '}'
+"	inoremap { {}<Left>
+"	inoremap {<CR> {<CR>}<Esc>O
+"	inoremap {<Right> {<Right>
+"	inoremap {<End> {<End>
+"	inoremap {{ {
+"	inoremap {} {}
+"	" Ajout automatique de ')'
+"	inoremap ( ()<Left>
+"	inoremap (<CR> (<CR>)<Esc>O
+"	inoremap (<Right> (<Right>
+"	inoremap (<End> (<End>
+"	inoremap (( (
+"	inoremap () ()
+"	" Ajout automatique de '['
+"	inoremap [ []<LEFT>
+"	inoremap [<CR> [<CR>]<Esc>O
+"	inoremap [<Right> [<Right>
+"	inoremap [<End> [<End>
+"	inoremap [[ [
+"	inoremap [] []
+"	" Ajout automatique de '"'
+"	inoremap " ""<Left>
+"	inoremap "" "
+"	inoremap "<Right> "<Right>
+"	inoremap "<End> "<End>
+"	inoremap "<Home> "<Home>
+"	inoremap "<Esc> "
+"	" Ajout automatique de "'"
+"	inoremap ' ''<Left>
+"	inoremap '' '
+"	inoremap '<Right> '<Right>
+"	inoremap '<End> '<End>
+"	inoremap '<Home> '<Home>
+"	inoremap '<Esc> '
+"	" Ajout automatique de '«'
+"	inoremap « «»<LEFT>
+"	inoremap «<CR> «<CR>»<Esc>O
+"	inoremap «<Right> «<Right>
+"	inoremap «<End> «<End>
+"	inoremap «« «
+"	inoremap «» «»
+"	" Ajout automatique de '«'
+"	inoremap < <><LEFT>
+"	inoremap <<CR> <<CR>><Esc>O
+"	inoremap <<Right> <<Right>
+"	inoremap <<End> <<End>
+"	inoremap << <
+"	inoremap <> <>
 
 " Explicit display of chars 
 	if &term =~ "linux"
@@ -160,6 +160,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Townk/vim-autoclose'
 call vundle#end()
 filetype plugin indent on
 
