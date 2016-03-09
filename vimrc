@@ -161,6 +161,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Townk/vim-autoclose'
+Plugin 'vim-scripts/vim-dokuwiki'
 call vundle#end()
 filetype plugin indent on
 
