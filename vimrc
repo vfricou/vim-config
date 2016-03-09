@@ -185,3 +185,4 @@ let g:lightline = {
 
 " Active gitgutter
 let g:gitgutter_avoid_cmd_prompt_on_windows = 0
+
