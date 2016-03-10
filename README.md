@@ -19,7 +19,7 @@ When the repository is clones and all the submodules, you just make a link of vi
 ## Include
 This configuration include some configurations and plugins.
 - Autoclosing of pairing chars such : () {} [] "" '' <> «»
-- Autoclosing of balise for html code.
+- Autoclosing of balise for html code. (Actually necessary to get module on https://github.com/vfricou/vim_config)
 - Set line number in file in mode "relative" (active line was always 0). Helpfull to copy/cut.
 - Set tabulation spacing to four space lenght.
 - Set intelligent indentation
