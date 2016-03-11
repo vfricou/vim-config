@@ -1,19 +1,5 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
-" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing archlinux.vim since it alters the value of the
-" 'compatible' option.
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages.
 runtime! archlinux.vim
-runtime! /usr/local/share/vim/word_complete.vim
-" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
-" Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
-" and configure vim to your own liking!
-
+runtime! ~/.vim/bundle/word_complete.vim
 
 " No vi compatibility
 	set nocompatible
@@ -83,57 +69,6 @@ nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language
 " No line wrap
 	set nowrap
 
-" Auto close brackets
-"	" Ajout automatique de '}'
-"	inoremap { {}<Left>
-"	inoremap {<CR> {<CR>}<Esc>O
-"	inoremap {<Right> {<Right>
-"	inoremap {<End> {<End>
-"	inoremap {{ {
-"	inoremap {} {}
-"	" Ajout automatique de ')'
-"	inoremap ( ()<Left>
-"	inoremap (<CR> (<CR>)<Esc>O
-"	inoremap (<Right> (<Right>
-"	inoremap (<End> (<End>
-"	inoremap (( (
-"	inoremap () ()
-"	" Ajout automatique de '['
-"	inoremap [ []<LEFT>
-"	inoremap [<CR> [<CR>]<Esc>O
-"	inoremap [<Right> [<Right>
-"	inoremap [<End> [<End>
-"	inoremap [[ [
-"	inoremap [] []
-"	" Ajout automatique de '"'
-"	inoremap " ""<Left>
-"	inoremap "" "
-"	inoremap "<Right> "<Right>
-"	inoremap "<End> "<End>
-"	inoremap "<Home> "<Home>
-"	inoremap "<Esc> "
-"	" Ajout automatique de "'"
-"	inoremap ' ''<Left>
-"	inoremap '' '
-"	inoremap '<Right> '<Right>
-"	inoremap '<End> '<End>
-"	inoremap '<Home> '<Home>
-"	inoremap '<Esc> '
-"	" Ajout automatique de '«'
-"	inoremap « «»<LEFT>
-"	inoremap «<CR> «<CR>»<Esc>O
-"	inoremap «<Right> «<Right>
-"	inoremap «<End> «<End>
-"	inoremap «« «
-"	inoremap «» «»
-"	" Ajout automatique de '«'
-"	inoremap < <><LEFT>
-"	inoremap <<CR> <<CR>><Esc>O
-"	inoremap <<Right> <<Right>
-"	inoremap <<End> <<End>
-"	inoremap << <
-"	inoremap <> <>
-
 " Explicit display of chars 
 	if &term =~ "linux"
 		set list listchars=nbsp:+,tab:\|·,trail:·,extends:>,precedes:<
@@ -148,7 +83,7 @@ nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language
 	set hlsearch
 
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako,php let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako,php source /usr/local/share/vim/closetag.vim
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako,php source ~/.vim/bundle/closetag.vim
 
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
