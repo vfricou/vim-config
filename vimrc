@@ -123,6 +123,8 @@ let g:lightline = {
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
+noremap <C-g> :bprev<CR>
+noremap <C-h> :bnext<CR>
 
 " Active gitgutter
 let g:gitgutter_avoid_cmd_prompt_on_windows = 0
