@@ -34,7 +34,7 @@ runtime! ~/.vim/bundle/word_complete.vim
 	set showmode
 
 " Display cursor
-	set ruler
+	set cursorline
 
 " Display uncomplete commands
 	set showcmd
