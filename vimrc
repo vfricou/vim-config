@@ -92,11 +92,12 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Townk/vim-autoclose'
-Plugin 'vim-scripts/vim-dokuwiki'
+	Plugin 'VundleVim/Vundle.vim'
+	Plugin 'vim-airline/vim-airline'
+	Plugin 'airblade/vim-gitgutter'
+	Plugin 'Townk/vim-autoclose'
+	Plugin 'vim-scripts/vim-dokuwiki'
+	Plugin 'scrooloose/nerdtree'
 call vundle#end()
 filetype plugin indent on
 
@@ -124,3 +125,7 @@ let g:lightline = {
 " Active gitgutter
 let g:gitgutter_avoid_cmd_prompt_on_windows = 0
 
+" Active nerdtree
+autocmd vimenter * NERDTree
+map <F2> :NERDTreeToggle<CR> " This map <F2> to open or close NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
