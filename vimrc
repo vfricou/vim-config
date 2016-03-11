@@ -98,6 +98,7 @@ call vundle#begin()
 	Plugin 'Townk/vim-autoclose'
 	Plugin 'vim-scripts/vim-dokuwiki'
 	Plugin 'scrooloose/nerdtree'
+	Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 filetype plugin indent on
 
@@ -108,6 +109,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tmuxline#enabled = 1
+let g:airline_theme='serene'
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'component': {
