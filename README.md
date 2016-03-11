@@ -32,6 +32,8 @@ This configuration include some configurations and plugins.
 - Disable auto line wrapping (displaying option)
 - Set undolevel to 256
 - Set highlightning of search (Matchs)
+- Plugin NERDTree to open pane with vim
+- Changing airline color to 'serene' for a less intrusive colorscheme of airline
 
 ## Warning
 Powerline font not work correctly with urxvt and probably xterm. So, in vim, you’ll probably have artefact instead of correct separator chars.
