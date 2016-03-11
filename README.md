@@ -10,7 +10,7 @@ To get this configuration and use it, you’ll install first the powerlines font
 
 ### Cloning configuration
 Next, you’ll clone this repository **INCLUDING** the submodules them is other git repositories.
-> git clone --recursive https://git.fricouv.eu/vfricou/vim_user_config ~/.vim/
+> git clone --recursive https://github.com/vfricou/vim_config ~/.vim/
 
 ### Linking vimrc
 When the repository is clones and all the submodules, you just make a link of vimrc file.
@@ -32,7 +32,3 @@ This configuration include some configurations and plugins.
 - Disable auto line wrapping (displaying option)
 - Set undolevel to 256
 - Set highlightning of search (Matchs)
-
-## TODO
-- Fused of all config with https://github.com/vfricou/vim_config to get all config in one and same git repo
-
