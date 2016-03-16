@@ -6,6 +6,10 @@ runtime! ~/.vim/bundle/word_complete.vim
 " Syntaxic coloration
 	syntax on
 
+" Configuration for gvim default color for foreground in white and background
+" in black
+highlight Normal guifg=white guibg=black
+
 " Display line number
 "	set number
 
