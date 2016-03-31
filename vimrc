@@ -135,6 +135,6 @@ noremap <C-h> :bnext<CR>
 let g:gitgutter_avoid_cmd_prompt_on_windows = 0
 
 " Active nerdtree
-autocmd vimenter * NERDTree
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <F2> :NERDTreeToggle<CR> " This map <F2> to open or close NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
