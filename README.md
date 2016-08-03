@@ -26,7 +26,6 @@ This configuration include some configurations and plugins.
 - Automatic creation of backup file at current location (file suffixed by ~)
 - Highlight redundant spaces, ending spaces, special spaces.
 - Display EOL from DOS format
-- DispalyDisplay EOL from DOS format
 - Dispaly matching brackets.
 - Enable spell checking for English or French (Activable or not with keybinding)
 - Disable auto line wrapping (displaying option)
