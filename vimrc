@@ -70,8 +70,8 @@ nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language
 " Set encoding to UTF-8
 	set encoding=utf-8
 
-" No line wrap
-	set nowrap
+" Set line wrap
+	set wrap
 
 " Explicit display of chars 
 	if &term =~ "linux"
