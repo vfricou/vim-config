@@ -22,3 +22,6 @@
 [submodule "bundle/git-vim"]
 	path = bundle/git-vim
 	url = https://github.com/motemen/git-vim.git
+[submodule "bundle/lightline.vim"]
+	path = bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
