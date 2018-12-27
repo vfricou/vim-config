@@ -115,19 +115,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_theme='serene'
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?":&readonly?"⭤":"}',
-      \   'modified': '%{&filetype=="help"?":&modified?"+":&modifiable?":"-"}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))'
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
+
 noremap <C-g> :bprev<CR>
 noremap <C-h> :bnext<CR>
 
