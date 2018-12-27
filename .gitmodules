@@ -22,3 +22,6 @@
 [submodule "bundle/git-vim"]
 	path = bundle/git-vim
 	url = https://github.com/motemen/git-vim.git
+[submodule "bundle/vim-multiple-cursors"]
+	path = bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors

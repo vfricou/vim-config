@@ -103,7 +103,8 @@ call vundle#begin()
 	Plugin 'vim-scripts/vim-dokuwiki'
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'motemen/git-vim'
+	Plugin 'motemen/git-vim'
+	Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 filetype plugin indent on
 
