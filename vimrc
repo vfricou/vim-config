@@ -17,10 +17,10 @@ highlight Normal guifg=white guibg=black
 	set relativenumber
 
 " Set tab to 4 columns
-	set tabstop=4
+	set tabstop=2
 
 " Set tab to 4 columns
-	set shiftwidth=4
+	set shiftwidth=2
 
 " Set intelligent indentation
 	set smartindent
