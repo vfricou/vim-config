@@ -2,89 +2,95 @@ runtime! archlinux.vim
 runtime! ~/.vim/bundle/word_complete.vim
 
 " No vi compatibility
-	set nocompatible
+  set nocompatible
 " Syntaxic coloration
-	syntax on
+  syntax on
 
 " Configuration for gvim default color for foreground in white and background
 " in black
 highlight Normal guifg=white guibg=black
 
 " Display line number
-"	set number
+"  set number
 
 " Display line number relative to cursor
-	set relativenumber
+  set relativenumber
 
 " Set tab to 4 columns
-	set tabstop=2
+  set tabstop=2
 
 " Set tab to 4 columns
-	set shiftwidth=2
+  set shiftwidth=2
 
 " Set intelligent indentation
-	set smartindent
+  set smartindent
 
 " Auto indent to next lines
-	set autoindent
+  set autoindent
 
 " Intelligent backspace
-	set backspace=indent,eol,start
+  set backspace=indent,eol,start
 
 " Indent to next tab
-	set shiftround
+  set shiftround
 
 " Display mode
-	set showmode
+  set showmode
 
 " Display cursor
-	set cursorline
+  set cursorline
 
 " Display uncomplete commands
-	set showcmd
+  set showcmd
 
 " Backup file
-	set backup
+  set backup
+
+" Activate modeline
+  set modeline
+
+" Activate expand tabs
+  set expandtab
 
 " Highlight redundant whitespaces
-	highlight RedundantSpaces ctermbg=lightred guibg=red
-	match RedundantSpaces /\s\+$\|  \+\ze\t\| /
+  highlight RedundantSpaces ctermbg=lightred guibg=red
+  match RedundantSpaces /\s\+$\|  \+\ze\t\| /
 
 " always show ^M in DOS files
-	set fileformats=unix
+  set fileformats=unix
 
 " Display matching brackets
-	set showmatch
+  set showmatch
 
 " Switch between spelling languages
 function! ToggleSpellLang()
-	if &spelllang =~# 'en'
-		:set spelllang=fr
-	else
-		:set spelllang=en
-	endif
+  if &spelllang =~# 'en'
+    :set spelllang=fr
+  else
+    :set spelllang=en
+  endif
 endfunction
 nnoremap <F7> :setlocal spell!<CR> " toggle spell on or off
 nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language
 
 " Set encoding to UTF-8
-	set encoding=utf-8
+  set encoding=utf-8
 
 " Set line wrap
-	set wrap
+  set wrap
 
 " Explicit display of chars 
-	if &term =~ "linux"
-		set list listchars=nbsp:+,tab:\|·,trail:·,extends:>,precedes:<
-	else
-		set list listchars=nbsp:¬,tab:⎢·,trail:·,extends:>,precedes:<
-	endif
+  if &term =~ "linux"
+    set list listchars=nbsp:+,tab:\|·,trail:·,extends:>,precedes:<
+  else
+    set list listchars=nbsp:¬,tab:⎢·,trail:·,extends:>,precedes:<
+  endif
 
 " Set undo level to 256
-	set undolevels=256
+  set undolevels=256
 
 " Highlight search
-	set hlsearch
+  set hlsearch
 
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako,php let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako,php source ~/.vim/bundle/closetag.vim
@@ -96,15 +102,15 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-	Plugin 'VundleVim/Vundle.vim'
-	Plugin 'vim-airline/vim-airline'
-	Plugin 'airblade/vim-gitgutter'
-	Plugin 'Townk/vim-autoclose'
-	Plugin 'vim-scripts/vim-dokuwiki'
-	Plugin 'scrooloose/nerdtree'
-	Plugin 'vim-airline/vim-airline-themes'
-	Plugin 'motemen/git-vim'
-	Plugin 'terryma/vim-multiple-cursors'
+  Plugin 'VundleVim/Vundle.vim'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'Townk/vim-autoclose'
+  Plugin 'vim-scripts/vim-dokuwiki'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'motemen/git-vim'
+  Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 filetype plugin indent on
 
