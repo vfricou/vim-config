@@ -133,3 +133,12 @@ let g:gitgutter_avoid_cmd_prompt_on_windows = 0
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <F2> :NERDTreeToggle<CR> " This map <F2> to open or close NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Append modeline to files by pressing F3
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ai ts=%d ws=%d tw=%d %set :",
+        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+map <F3> :call AppendModeline()<CR>
