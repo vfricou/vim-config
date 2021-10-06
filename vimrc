@@ -118,7 +118,6 @@ highlight Normal guifg=white guibg=black
     Plugin 'Townk/vim-autoclose'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'motemen/git-vim'
   call vundle#end()
   filetype plugin indent on
 
