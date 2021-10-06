@@ -117,6 +117,7 @@ highlight Normal guifg=white guibg=black
     Plugin 'airblade/vim-gitgutter'
     Plugin 'Townk/vim-autoclose'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'scrooloose/nerdcommenter'
     Plugin 'vim-airline/vim-airline-themes'
   call vundle#end()
   filetype plugin indent on
@@ -130,7 +131,6 @@ highlight Normal guifg=white guibg=black
   let g:airline#extensions#rmuxline#enabled = 1
   let g:airline_theme='wombat'
 
-
 " Active gitgutter
   let g:gitgutter_avoid_cmd_prompt_on_windows = 0
 
@@ -138,6 +138,10 @@ highlight Normal guifg=white guibg=black
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   map <F2> :NERDTreeToggle<CR> " This map <F2> to open or close NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Remap NerdCommenter comment toggle
+  nnoremap <S-Tab> :call NERDComment(0,"toggle") <CR>
+  vnoremap <S-Tab> :call NERDComment(0,"toggle") <CR>
 
 " Append modeline to files by pressing F3
   function! AppendModeline()
