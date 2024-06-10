@@ -1,1 +1,11 @@
-*\~
+# IDE exclusions
+/.idea
+/*.iml
+/.vscode
+/.workspace
+/*\~
+/.*\~
+
+# Vim context folders for plugins
+/pack/*
+!/pack/.gitkeep

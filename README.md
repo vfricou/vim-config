@@ -1,39 +1,61 @@
-Vim full configuration for user
-======
+# VIM light configuration
 
-This repository contain a full functionnal configuration for vim.
+:!: Require VIM 8+ version
 
-## Installation
+VIM configuration usable on servers. Require some steps to deploy :
 
-### Prerequisites
-To get this configuration and use it, you’ll install first the powerlines fonts.
+1.Clone this repository : `git clone https://github.com/vfricou/vim_config.git ~/.vim`
+2. Clone vim-airline plugin : `git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline`
+3. Clone nerttree plugin : `git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree`
+4. Clone nerdcommenter plugin : `git clone https://github.com/preservim/nerdcommenter.git ~/.vim/pack/vendor/start/nerdcommenter`
+5. Install vim-airline helptags : `vim -u NONE -c ":helptags ~/.vim/pack/dist/start/vim-airline/doc" -c q`
+6. Install nerdtree helptags : `vim -u NONE -c ":helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q`
+7. (optional) link vimrc configuration file : `ln -s ~/.vim/vimrc ~/.vimrc`
 
-### Cloning configuration
-Next, you’ll clone this repository **INCLUDING** the submodules them is other git repositories.
-> git clone --recursive https://github.com/vfricou/vim_config ~/.vim/
+Step `7` is necessary on certains OS to get valid configuration loading.
 
-### Linking vimrc
-When the repository is clones and all the submodules, you just make a link of vimrc file.
-> ln -s ~/.vim/vimrc ~/.vimrc
+## Bulk installation
 
-## Include
-This configuration include some configurations and plugins.
-- Autoclosing of pairing chars such : () {} [] "" '' <> «»
-- Autoclosing of balise for html code. (Actually necessary to get module on https://github.com/vfricou/vim_config)
-- Set line number in file in mode "relative" (active line was always 0). Helpfull to copy/cut.
-- Set tabulation spacing to four space lenght.
-- Set intelligent indentation
-- Automatic creation of backup file at current location (file suffixed by ~)
-- Highlight redundant spaces, ending spaces, special spaces.
-- Display EOL from DOS format
-- Dispaly matching brackets.
-- Enable spell checking for English or French (Activable or not with keybinding)
-- Disable auto line wrapping (displaying option)
-- Set undolevel to 256
-- Set highlightning of search (Matchs)
-- Plugin NERDTree to open pane with vim
-- Changing airline color to 'serene' for a less intrusive colorscheme of airline
-- Adding binding to C-g and C-h to previous and next pane
+```shell
+git clone https://github.com/vfricou/vim_config.git ~/.vim
+git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
+git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+git clone https://github.com/preservim/nerdcommenter.git ~/.vim/pack/vendor/start/nerdcommenter
+vim -u NONE -c ":helptags ~/.vim/pack/dist/start/vim-airline/doc" -c q
+vim -u NONE -c ":helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+ln -s ~/.vim/vimrc ~/.vimrc
+```
 
-## Warning
-Powerline font not work correctly with urxvt and probably xterm. So, in vim, you’ll probably have artefact instead of correct separator chars.
+## Features
+
+- Enable syntax highlighting
+- Display lines relative number
+- Force tab to 4 chars
+- Expand tabs to spaces
+- Enable smartindent
+- Enable intelligent backspace
+- Display cursorline
+- Enable file backup
+- Enable modeline
+- Highlight redundant spaces (trailing spaces)
+- Display files in unix format (`^M` will displayed for DOS formatted files)
+- Enable matching brackets displaying
+- Enable spell check for en/fr lang
+- Define default file encoding to UTF-8
+- Enable line wrap
+- Enable search highlight
+- Plugin vim-airline
+- Plugin NERDTree
+- Plugin NERDCommenter
+
+## Keybinding
+
+| Sequence  | Description                            |
+|-----------|----------------------------------------|
+| `F7`      | Enable/Disable spellcheck              |
+| `F8`      | Toggle spell lang en/fr                |
+| `S-Left`  | Switch to previous buffer              |
+| `S-Right` | Swithc to next buffer                  |
+| `F2`      | Display and switch to NERDTree panel   |
+| `S-Tab`   | Toggle line comment with NERDCommenter |
+| `F3`      | Append modeline to file                |

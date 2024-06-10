@@ -1,153 +1,124 @@
-runtime! archlinux.vim
-runtime! ~/.vim/bundle/word_complete.vim
+" Disable vi compatibility
+set nocompatible
 
-" No vi compatibility
-  set nocompatible
-" Syntaxic coloration
-  syntax on
+" Enable syntax coloration
+syntax on
 
-" Configuration for gvim default color for foreground in white and background
-" in black
-highlight Normal guifg=white guibg=black
-
-" Display line number
-"  set number
-
-" Display line number relative to cursor
-  set relativenumber
+" Display lines number
+" set number
+" Disable lines number relative to cursor
+set relativenumber
 
 " Set tab to 4 columns
-  set tabstop=2
+set tabstop=4
+set shiftwidth=4
 
-" Set tab to 4 columns
-  set shiftwidth=2
+" Enable tab expansion
+set expandtab
 
 " Set intelligent indentation
-  set smartindent
+set smartindent
 
 " Auto indent to next lines
-  set autoindent
+set autoindent
 
 " Intelligent backspace
-  set backspace=indent,eol,start
+set backspace=indent,eol,start
 
 " Indent to next tab
-  set shiftround
+" set shiftround
 
 " Display mode
-  set showmode
+set showmode
 
-" Display cursor
-  set cursorline
+" Display cursor line
+set cursorline
 
 " Display uncomplete commands
-  set showcmd
+set showcmd
 
-" Backup file
-  set backup
+" Enable auto backup file
+set backup
 
-" Activate modeline
-  set modeline
-
-" Activate expand tabs
-  set expandtab
+" Enable vim modeline
+set modeline
 
 " Highlight redundant whitespaces
-  highlight RedundantSpaces ctermbg=lightred guibg=red
-  match RedundantSpaces /\s\+$\|  \+\ze\t\| /
+highlight RedundantSpaces ctermbg=lightred
+match RedundantSpaces /\s\+$\|  \+\ze\t\|�/
 
-" always show ^M in DOS files
-  set fileformats=unix
+" Enable display for CRLF (^M) in DOS files
+set fileformats=unix
 
-" Display matching brackets
-  set showmatch
+" Enable brackets matching display
+set showmatch
 
-" Switch between spelling languages
-  function! ToggleSpellLang()
+" Function to toggle spelling languages
+function! ToggleSpellLang()
     if &spelllang =~# 'en'
-      :set spelllang=fr
+        :set spelllang=fr
     else
-      :set spelllang=en
+        :set spelllang=en
     endif
-  endfunction
-  nnoremap <F7> :setlocal spell!<CR> " toggle spell on or off
-  nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language
+endfunction
+" Toggle spell on or off
+nnoremap <F7> :setlocal spell!<CR>
+" Toggle language
+nnoremap <F8> :call ToggleSpellLang()<CR>
 
-" Set encoding to UTF-8
-  set encoding=utf-8
+" Set default file encoding to UTF-8
+set encoding=utf-8
 
-" Set line wrap
-  set wrap
+" Enable line wrap
+set wrap
 
-" Explicit display of chars 
-  if &term =~ "linux"
+" Explicitly display chars
+if &term =~ "linux"
     set list listchars=nbsp:+,tab:\|·,trail:·,extends:>,precedes:<
-  else
-    set list listchars=nbsp:¬,tab:⎢·,trail:·,extends:>,precedes:<
-  endif
+else
+    set list listchars=nbsp:�,tab:��,trail:�,extends:>,precedes:<
+endif
 
-" Set undo level to 256
-  set undolevels=256
+" Set undo level
+set undolevels=256
 
-" Highlight search
-  set hlsearch
+" Highlight search pattern
+set hlsearch
 
 " Force buffer to keep lines and column on parsing
-  set scrolloff=3
-  set sidescrolloff=5
+set scrolloff=3
+set sidescrolloff=5
 
 " Buffer navigation mapping
-  noremap <C-LEFT> :bprev<CR>
-  noremap <C-RIGHT> :bnext<CR>
+noremap <S-LEFT> :bprev<CR>
+noremap <S-RIGHT> :bnext<CR>
 
-" Autoclose tags
-  autocmd FileType html,htmldjango,jinjahtml,eruby,mako,php let b:closetag_html_style=1
-  autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako,php source ~/.vim/bundle/closetag.vim
+" Keep buffer position accros file openning
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-" Keep buffer position
-  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-" Activate Vundle
-  filetype off
-
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'Townk/vim-autoclose'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'vim-airline/vim-airline-themes'
-  call vundle#end()
-  filetype plugin indent on
-
-" Activation and configuration for vim-airline
-  set laststatus=2
-  set t_Co=256
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#buffer_nr_show = 1
-  let g:airline#extensions#rmuxline#enabled = 1
-  let g:airline_theme='wombat'
-
-" Active gitgutter
-  let g:gitgutter_avoid_cmd_prompt_on_windows = 0
+" Activate and configure vim-airline
+set laststatus=2
+set t_Co=256
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#rmuxline#enabled = 1
 
 " Active nerdtree
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  map <F2> :NERDTreeToggle<CR> " This map <F2> to open or close NERDTree
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <F2> :NERDTreeToggle<CR> " This map <F2> to open or close NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Remap NerdCommenter comment toggle
-  nnoremap <S-Tab> :call NERDComment(0,"toggle") <CR>
-  vnoremap <S-Tab> :call NERDComment(0,"toggle") <CR>
+nnoremap <S-Tab> :call nerdcommenter#Comment(0,"toggle") <CR>
+vnoremap <S-Tab> :call nerdcommenter#Comment(0,"toggle") <CR>
+filetype plugin on
 
 " Append modeline to files by pressing F3
-  function! AppendModeline()
+function! AppendModeline()
     let l:modeline = printf(" vim: set ai ts=%d ws=%d tw=%d %set :",
           \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
     let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
     call append(line("$"), l:modeline)
-  endfunction
-  map <F3> :call AppendModeline()<CR>
+endfunction
+map <F3> :call AppendModeline()<CR>
